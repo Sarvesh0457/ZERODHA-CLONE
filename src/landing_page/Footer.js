@@ -12,7 +12,7 @@ function Footer() {
             style={{ width: "45%" }}
           ></img>
           <p>
-            &copy; 2010 - 2025, Zerodha Broking Ltd. <br />
+            &copy; 2010 - 2026, Zerodha Broking Ltd. <br />
             All rights reserved.
           </p>
           <div className="text-muted p-3">
