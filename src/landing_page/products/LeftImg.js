@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function LeftImg({imageURL, productName, productDescription, tryDemo, learnMore, googlePlay, appStore}) {
     return ( 
@@ -11,12 +12,12 @@ function LeftImg({imageURL, productName, productDescription, tryDemo, learnMore,
                     <h1>{productName}</h1>
                     <p>{productDescription}</p>
                     <div className='mb-4'>
-                        {tryDemo === '' ? null : <a href={tryDemo} style={{textDecoration:"none"}}>{tryDemo} &#8594;</a>}
-                        {learnMore === '' ? null : <a href={learnMore} style={{marginLeft:"80px", textDecoration:"none"}}>{learnMore} &#8594;</a>}
+                        {tryDemo === '' ? null : <Link to='/Abc'>{tryDemo} &#8594;</Link>}
+                        {learnMore === '' ? null : <Link to='/Abc' style={{marginLeft:"80px", textDecoration:"none"}}>{learnMore} &#8594;</Link>}
                     </div>
                     <div>
-                        <a href={googlePlay}> <img src='./media/images/googlePlayBadge.svg' alt='Play Store'></img> </a>
-                        <a href={appStore} style={{marginLeft:"10px", textDecoration:"none"}}> <img src='./media/images/appstoreBadge.svg' alt='App Store'></img> </a>
+                        <Link to='/Abc'> <img src='./media/images/googlePlayBadge.svg' alt='Play Store'></img> </Link>
+                        <Link to='/Abc' style={{marginLeft:"10px", textDecoration:"none"}}> <img src='./media/images/appstoreBadge.svg' alt='App Store'></img> </Link>
                     </div>
                 </div>
             </div>

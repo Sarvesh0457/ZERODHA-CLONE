@@ -1,11 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function Brokerage() {
     return ( 
         <div className='contianer'>
             <div className='row p-3 m-5 text-center border-top'>
-                <div className='col-8 p-4'>
-                    <a href='abc.com' style={{textDecoration:"none"}}><h3 className='fs-4'>Brokerage calculator</h3></a>    
+                <div className='col-8 p-4'> 
+                    <Link to='/Abc' style={{textDecoration:"none"}}><h3 className='fs-4'>Brokerage calculator</h3></Link>    
                     <ul style={{textAlign:"left", lineHeight:"2.2"}} className='text-muted'>
                         <li>Call & Trade and RMS auto-spareoff:Addition charges of &#8377;50 + GST per order.</li>
                         <li>Digital contract notes will be sent via e-mail</li>
@@ -16,7 +17,7 @@ function Brokerage() {
                     </ul>
                 </div>
                 <div className='col-4'>
-                    <a href='abc.com' style={{textDecoration:"none"}}><h3 className='fs-4'>List of charges</h3></a>
+                    <Link to='/Abc' style={{textDecoration:"none"}}><h3 className='fs-4'>List of charges</h3></Link>
                 </div>
             </div>
         </div>

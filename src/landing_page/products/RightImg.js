@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function RightImg({imageURL, productName, productDescription, learnMore}) {
     return ( 
@@ -8,7 +9,7 @@ function RightImg({imageURL, productName, productDescription, learnMore}) {
                     <h1>{productName}</h1>
                     <p>{productDescription}</p>
                     <div className='mb-4'>
-                        <a href={learnMore} style={{marginLeft:"80px", textDecoration:"none"}}>Kite Connect &#8594;</a>
+                        <Link to='/Abc' style={{marginLeft:"80px", textDecoration:"none"}}>Kite Connect &#8594;</Link>
                     </div>
                 </div>
                 <div className='col-6'>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function Team() {
     return ( 
@@ -19,7 +20,7 @@ function Team() {
                         </p>
                         <p>He is a member of the SEBI Secondary Market Advisory Committee (SMAC) and the Market Data Advisory Committee (MDAC).</p>
                         <p>Playing basketball is his zen.</p>
-                        <p>Connect on <a href='abc.com' style={{textDecoration:"none"}}>Homepage</a> / <a href='abc.com' style={{textDecoration:"none"}}>TradingQnA</a> / <a href='abc.com' style={{textDecoration:"none"}}>Twitter</a></p>
+                        <p>Connect on <Link to='/Abc'>Homepage</Link> / <Link to='/Abc'>TradingQnA</Link> / <Link to='/Abc'>Twitter</Link></p>
                     </div>
                 </div>
             </div>

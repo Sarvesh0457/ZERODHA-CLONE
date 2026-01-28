@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Footer() {
   return (
@@ -29,74 +30,74 @@ function Footer() {
         </div>
         <div className="col-2">
           <h3>Account</h3>
-          <a href="abc.com">Open demat account</a>
+          <Link to='/Abc'>Open demat account</Link>
           <br />
-          <a href="abc.com">Minor demat account</a>
+          <Link to='/Abc'>Minor demat account</Link>
           <br />
-          <a href="abc.com">NRI demat account</a>
+          <Link to='/Abc'>NRI demat account</Link>
           <br />
-          <a href="abc.com">Commodity</a>
+          <Link to='/Abc'>Commodity</Link>
           <br />
-          <a href="abc.com">Dematerialisation</a>
+          <Link to='/Abc'>Dematerialisation</Link>
           <br />
-          <a href="abc.com">Fund transfer</a>
+          <Link to='/Abc'>Fund transfer</Link>
           <br />
-          <a href="abc.com">MTF</a>
+          <Link to='/Abc'>MTF</Link>
           <br />
-          <a href="abc.com">Referral program</a>
+          <Link to='/Abc'>Referral program</Link>
           <br />
         </div>
         <div className="col-2">
           <h3>Support</h3>
-          <a href="abc.com">Contact us</a>
+          <Link to='/Abc'>Contact us</Link>
           <br />
-          <a href="abc.com">Support portal</a>
+          <Link to='/Abc'>Support portal</Link>
           <br />
-          <a href="abc.com">How to file a complaint?</a>
+          <Link to='/Abc'>How to file a complaint?</Link>
           <br />
-          <a href="abc.com">Status of your complaints</a>
+          <Link to='/Abc'>Status of your complaints</Link>
           <br />
-          <a href="abc.com">Bulletin</a>
+          <Link to='/Abc'>Bulletin</Link>
           <br />
-          <a href="abc.com">Circular</a>
+          <Link to='/Abc'>Circular</Link>
           <br />
-          <a href="abc.com">Z-Connect blog</a>
+          <Link to='/Abc'>Z-Connect blog</Link>
           <br />
-          <a href="abc.com">Downloads</a>
+          <Link to='/Abc'>Downloads</Link>
           <br />
         </div>
         <div className="col-2">
           <h3>Company</h3>
-          <a href="abc.com">About</a>
+          <Link to='/Abc'>About</Link>
           <br />
-          <a href="abc.com">Philosophy</a>
+          <Link to='/Abc'>Philosophy</Link>
           <br />
-          <a href="abc.com">Press & media</a>
+          <Link to='/Abc'>Press & media</Link>
           <br />
-          <a href="abc.com">Careers</a>
+          <Link to='/Abc'>Careers</Link>
           <br />
-          <a href="abc.com">Zerodha Cares (CSR)</a>
+          <Link to='/Abc'>Zerodha Cares (CSR)</Link>
           <br />
-          <a href="abc.com">Zerodha.tech</a>
+          <Link to='/Abc'>Zerodha.tech</Link>
           <br />
-          <a href="abc.com">Open source</a>
+          <Link to='/Abc'>Open source</Link>
           <br />
         </div>
         <div className="col-2">
           <h3>Quick links</h3>
-          <a href="abc.com">Upcoming IPOs</a>
+          <Link to='/Abc'>Upcoming IPOs</Link>
           <br />
-          <a href="abc.com">Brokerage charges</a>
+          <Link to='/Abc'>Brokerage charges</Link>
           <br />
-          <a href="abc.com">Market holidays</a>
+          <Link to='/Abc'>Market holidays</Link>
           <br />
-          <a href="abc.com">Economic calendar</a>
+          <Link to='/Abc'>Economic calendar</Link>
           <br />
-          <a href="abc.com">ZCalculators</a>
+          <Link to='/Abc'>ZCalculators</Link>
           <br />
-          <a href="abc.com">Markets</a>
+          <Link to='/Abc'>Markets</Link>
           <br />
-          <a href="abc.com">Sectors</a>
+          <Link to='/Abc'>Sectors</Link>
           <br />
         </div>
       </div>
