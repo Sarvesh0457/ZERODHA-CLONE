@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const { HoldingModel } = require("./Model/HoldingModel");
 const { PositionModel } = require("./Model/PositionsModel");
+const { OrdersModel } = require("./Model/OrdersModel")
 
 const PORT = process.env.PORT || 3002;
 const URL = process.env.MONGO_URL;
@@ -15,7 +16,7 @@ app.use(bodyParser.json());
 
 
 app.listen(PORT, () => {
-  console.log(`app is listening on ${3002}`);
+  console.log(`app is listening on ${PORT}`);
   mongoose.connect(URL);
 });
 
@@ -196,4 +197,17 @@ app.get("/allHoldings", async (req,res) => {
 app.get("/allPositions", async (req,res) => {
   let allPositions = await PositionModel.find({});
   res.json(allPositions);
+})
+
+app.post("/newOrder", async (req,res) => {
+  let newOrder = new OrdersModel({
+    name : req.body.name,
+    qty : req.body.qty,
+    price : req.body.price,
+    mode : req.body.mode,
+  });
+
+  await newOrder.save();
+
+  res.send("Order Saved");
 })
