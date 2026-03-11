@@ -15,7 +15,6 @@ const URL = process.env.MONGO_URL;
 app.use(
   cors({
     origin: ["http://localhost:3000"],
-    methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
 );
@@ -23,10 +22,53 @@ app.use(
 app.use(express.json());
 app.use(cookieParser());
 
-app.listen(PORT, () => {
-  console.log(`app is listening on ${PORT}`);
-  mongoose.connect(URL);
+app.use("/",authRoute);
+
+app.get("/", (req,res) => {
+  res.send("Backend is running");
 });
+
+app.post("/logout", (req, res) => {
+  res.clearCookie("token",  { path: "/" });
+
+  res.json({ status: true, message: "Logged out successfully" });
+});
+
+app.get("/allHoldings", async (req,res) => {
+  let allHoldings = await HoldingModel.find({});
+  res.json(allHoldings);
+});
+
+app.get("/allPositions", async (req,res) => {
+  let allPositions = await PositionModel.find({});
+  res.json(allPositions);
+})
+
+app.post("/newOrder", async (req,res) => {
+  let newOrder = new OrdersModel({
+    name : req.body.name,
+    qty : req.body.qty,
+    price : req.body.price,
+    mode : req.body.mode,
+  });
+
+  await newOrder.save();
+
+  res.send("Order Saved");
+})
+
+mongoose
+  .connect(URL)
+  .then(() => {
+    console.log("MongoDB Connected");
+
+    app.listen(PORT, () => {
+      console.log(`Server running on port ${PORT}`);
+    });
+  })
+  .catch((err) => {
+    console.error("MongoDB connection error:", err);
+  });
 
 // app.get("/addHoldings", async (req, res) => {
 //   let tempHoldings = [
@@ -195,39 +237,3 @@ app.listen(PORT, () => {
 //   });
 //   res.send("Done");
 // });
-app.use("/",authRoute);
-app.get("/", (req,res) => {
-  res.send("Backend is running");
-});
-
-app.get("/allHoldings", async (req,res) => {
-  let allHoldings = await HoldingModel.find({});
-  res.json(allHoldings);
-});
-
-app.get("/allPositions", async (req,res) => {
-  let allPositions = await PositionModel.find({});
-  res.json(allPositions);
-})
-
-app.post("/newOrder", async (req,res) => {
-  let newOrder = new OrdersModel({
-    name : req.body.name,
-    qty : req.body.qty,
-    price : req.body.price,
-    mode : req.body.mode,
-  });
-
-  await newOrder.save();
-
-  res.send("Order Saved");
-})
-
-app.post("/logout", (req, res) => {
-  res.clearCookie("token", {
-    httpOnly: true,
-    sameSite: "lax",
-  });
-
-  res.json({ status: true, message: "Logged out successfully" });
-});
