@@ -2,7 +2,8 @@ require("dotenv").config();
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
-const bodyParser = require('body-parser');
+const cookieParser = require("cookie-parser");
+const authRoute = require("./Routes/AuthRoute");
 const cors = require('cors');
 const { HoldingModel } = require("./Model/HoldingModel");
 const { PositionModel } = require("./Model/PositionsModel");
@@ -11,9 +12,16 @@ const { OrdersModel } = require("./Model/OrdersModel")
 const PORT = process.env.PORT || 3002;
 const URL = process.env.MONGO_URL;
 
-app.use(cors());
-app.use(bodyParser.json());
+app.use(
+  cors({
+    origin: ["http://localhost:3000"],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
 
+app.use(express.json());
+app.use(cookieParser());
 
 app.listen(PORT, () => {
   console.log(`app is listening on ${PORT}`);
@@ -187,7 +195,10 @@ app.listen(PORT, () => {
 //   });
 //   res.send("Done");
 // });
-
+app.use("/",authRoute);
+app.get("/", (req,res) => {
+  res.send("Backend is running");
+});
 
 app.get("/allHoldings", async (req,res) => {
   let allHoldings = await HoldingModel.find({});
@@ -211,3 +222,12 @@ app.post("/newOrder", async (req,res) => {
 
   res.send("Order Saved");
 })
+
+app.post("/logout", (req, res) => {
+  res.clearCookie("token", {
+    httpOnly: true,
+    sameSite: "lax",
+  });
+
+  res.json({ status: true, message: "Logged out successfully" });
+});
