@@ -1,13 +1,11 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Menu = () => {
-  const [selectedMenu, setSelectedMenu] = useState(0);
-  const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false);
 
-  const handleMenuClick = (index) => {
-    setSelectedMenu(index);
-  };
+  const location = useLocation();
+
+  const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false);
 
   const handleProfileClick = (index) => {
     setIsProfileDropdownOpen(!isProfileDropdownOpen);
@@ -18,16 +16,15 @@ const Menu = () => {
 
   return (
     <div className="menu-container">
-      <img src="logo.png" style={{ width: "50px" }} />
-      <div className="menus">
+      <img src="logo.png" style={{ width: "50px" }} alt="logo" />
+      <div className="menus"> 
         <ul>
           <li>
             <Link
               style={{ textDecoration: "none" }}
               to="/"
-              onClick={() => handleMenuClick(0)}
             >
-              <p className={selectedMenu === 0 ? activeMenuClass : menuClass}>
+              <p className={location.pathname === "/" ? activeMenuClass : menuClass}>
                 Dashboard
               </p>
             </Link>
@@ -36,9 +33,8 @@ const Menu = () => {
             <Link
               style={{ textDecoration: "none" }}
               to="/orders"
-              onClick={() => handleMenuClick(1)}
             >
-              <p className={selectedMenu === 1 ? activeMenuClass : menuClass}>
+              <p className={location.pathname === "/orders" ? activeMenuClass : menuClass}>
                 Orders
               </p>
             </Link>
@@ -47,9 +43,8 @@ const Menu = () => {
             <Link
               style={{ textDecoration: "none" }}
               to="/holdings"
-              onClick={() => handleMenuClick(2)}
             >
-              <p className={selectedMenu === 2 ? activeMenuClass : menuClass}>
+              <p className={location.pathname === "/holdings" ? activeMenuClass : menuClass}>
                 Holdings
               </p>
             </Link>
@@ -58,9 +53,8 @@ const Menu = () => {
             <Link
               style={{ textDecoration: "none" }}
               to="/positions"
-              onClick={() => handleMenuClick(3)}
             >
-              <p className={selectedMenu === 3 ? activeMenuClass : menuClass}>
+              <p className={location.pathname === "/positions" ? activeMenuClass : menuClass}>
                 Positions
               </p>
             </Link>
@@ -69,9 +63,8 @@ const Menu = () => {
             <Link
               style={{ textDecoration: "none" }}
               to="funds"
-              onClick={() => handleMenuClick(4)}
             >
-              <p className={selectedMenu === 4 ? activeMenuClass : menuClass}>
+              <p className={location.pathname === "/funds" ? activeMenuClass : menuClass}>
                 Funds
               </p>
             </Link>
@@ -80,9 +73,8 @@ const Menu = () => {
             <Link
               style={{ textDecoration: "none" }}
               to="/apps"
-              onClick={() => handleMenuClick(6)}
             >
-              <p className={selectedMenu === 6 ? activeMenuClass : menuClass}>
+              <p className={location.pathname === "/apps" ? activeMenuClass : menuClass}>
                 Apps
               </p>
             </Link>
@@ -90,7 +82,7 @@ const Menu = () => {
         </ul>
         <hr />
         <div className="profile" onClick={handleProfileClick}>
-          <div className="avatar">ZU</div>
+          <div className="avatar">User</div>
           <p className="username">USERID</p>
         </div>
       </div>
