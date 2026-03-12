@@ -14,7 +14,7 @@ const URL = process.env.MONGO_URL;
 
 app.use(
   cors({
-    origin: ["http://localhost:3000"],
+    origin: [process.env.FRONTEND,process.env.DASHBOARD],
     credentials: true,
   })
 );
@@ -52,6 +52,7 @@ app.post("/newOrder", async (req,res) => {
     mode : req.body.mode,
   });
 
+  console.log(newOrder);
   await newOrder.save();
 
   res.send("Order Saved");
