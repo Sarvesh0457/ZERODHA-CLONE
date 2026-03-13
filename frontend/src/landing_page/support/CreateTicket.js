@@ -18,7 +18,7 @@ function CreateTicket() {
                     <Link to='/Abc' style={{textDecoration:"none", lineHeight:"2.3"}}>Getting started</Link><br />
                 </div>
                 <div className='col-4 p-4 my-4'>
-                    <h4> <i class="fa-solid fa-user"></i> Your Zerodha Account</h4>
+                    <h4> <i className="fa-solid fa-user"></i> Your Zerodha Account</h4>
                     <Link to='/Abc' style={{textDecoration:"none", lineHeight:"2.3"}}>Login Credentials</Link><br />
                     <Link to='/Abc' style={{textDecoration:"none", lineHeight:"2.3"}}>Account modification and Segment Addition</Link><br />
                     <Link to='/Abc' style={{textDecoration:"none", lineHeight:"2.3"}}>DP ID and bank details</Link><br />
@@ -26,7 +26,7 @@ function CreateTicket() {
                     <Link to='/Abc' style={{textDecoration:"none", lineHeight:"2.3"}}>Transfer and conversion of shares</Link><br />
                 </div>
                 <div className='col-4 p-4 my-4'>
-                    <h4> <i class="fa-solid fa-chart-column"></i> Your Zeerodha Account</h4>
+                    <h4> <i className="fa-solid fa-chart-column"></i> Your Zeerodha Account</h4>
                     <Link to='/Abc' style={{textDecoration:"none", lineHeight:"2.3"}}>Margin/leverage, Product and Order types</Link><br />
                     <Link to='/Abc' style={{textDecoration:"none", lineHeight:"2.3"}}>Kite Web and Mobile</Link><br />
                     <Link to='/Abc' style={{textDecoration:"none", lineHeight:"2.3"}}>Trading FAQs</Link><br />
@@ -38,14 +38,14 @@ function CreateTicket() {
                     <Link to='/Abc' style={{textDecoration:"none", lineHeight:"2.3"}}>GTT</Link><br />
                 </div>
                 <div className='col-4 p-4 my-4'>
-                    <h4> <i class="fa-regular fa-credit-card"></i> Funds</h4>
+                    <h4> <i className="fa-regular fa-credit-card"></i> Funds</h4>
                     <Link to='/Abc' style={{textDecoration:"none", lineHeight:"2.3"}}>Adding Funds</Link><br />
                     <Link to='/Abc' style={{textDecoration:"none", lineHeight:"2.3"}}>Fund Withdrawal</Link><br />
                     <Link to='/Abc' style={{textDecoration:"none", lineHeight:"2.3"}}>eMandates</Link><br />
                     <Link to='/Abc' style={{textDecoration:"none", lineHeight:"2.3"}}>Adding Bank Accounts</Link><br />
                 </div>
                 <div className='col-4 p-4 my-4'>
-                    <h4> <i class="fa-solid fa-circle-notch"></i> Console</h4>
+                    <h4> <i className="fa-solid fa-circle-notch"></i> Console</h4>
                     <Link to='/Abc' style={{textDecoration:"none", lineHeight:"2.3"}}>Reports</Link><br />
                     <Link to='/Abc' style={{textDecoration:"none", lineHeight:"2.3"}}>Ledger</Link><br />
                     <Link to='/Abc' style={{textDecoration:"none", lineHeight:"2.3"}}>Portfolio</Link><br />
@@ -54,7 +54,7 @@ function CreateTicket() {
                     <Link to='/Abc' style={{textDecoration:"none", lineHeight:"2.3"}}>Referal Program</Link><br />
                 </div>
                 <div className='col-4 p-4 my-4'>
-                    <h4> <i class="fa-regular fa-circle"></i> Coin</h4>
+                    <h4> <i className="fa-regular fa-circle"></i> Coin</h4>
                     <Link to='/Abc' style={{textDecoration:"none", lineHeight:"2.3"}}>Understanding Mutual Funds</Link><br />
                     <Link to='/Abc' style={{textDecoration:"none", lineHeight:"2.3"}}>About Coin</Link><br />
                     <Link to='/Abc' style={{textDecoration:"none", lineHeight:"2.3"}}>Buying and Selling through Coin</Link><br />

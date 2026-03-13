@@ -1,14 +1,39 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
+
+import { useNavigate } from "react-router-dom";
+import { useCookies } from "react-cookie";
+import AuthContext from "./Context/AuthContext";
 
 function Navbar() {
+  const {user, setUser} = useContext(AuthContext);
+  const [cookies, removeCookie] = useCookies([]);
+  const navigate = useNavigate();
+
+  const Logout = async () => {
+    try{
+      await axios.post(
+        "http://localhost:3002/logout",
+        {},
+        { withCredentials: true }
+      );
+
+      removeCookie("token", { path: "/" });
+      setUser(null); // clear context user
+      navigate("/");
+    }catch (err){
+      console.log("Logout Failed: ",err)
+    }
+  };
+
   return (
     <nav
-      class="navbar navbar-expand-lg border-bottom"
+      className="navbar navbar-expand-lg border-bottom"
       style={{ backgroundColor: "#FFF" }}
     >
-      <div class="container p-1">
-        <Link class="navbar-brand" to="/">
+      <div className="container p-1">
+        <Link className="navbar-brand" to="/">
           <img
             src="media/images/logo.svg"
             alt="Zerodha Logo"
@@ -16,7 +41,7 @@ function Navbar() {
           ></img>
         </Link>
         <button
-          class="navbar-toggler"
+          className="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarSupportedContent"
@@ -24,33 +49,36 @@ function Navbar() {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span class="navbar-toggler-icon"></span>
+          <span className="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <form class="d-flex" role="search">
-            <ul class="navbar-nav mb-2 mb-lg-0">
-              <li class="nav-item">
-                <Link class="nav-link active" aria-current="page" to="/Signup">
-                  Signup
+        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          <form className="d-flex" role="search">
+            <ul className="navbar-nav mb-2 mb-lg-0">
+              {!user ? (<li className="nav-item">
+                <Link className="nav-link active" aria-current="page" to="/Signup">
+                  Signup/Login
                 </Link>
-              </li>
-              <li class="nav-item">
-                <Link class="nav-link active" to="/About">
+              </li>) : 
+              (<button type="button" className="nav-link active" onClick={Logout}>
+                  Logout
+                </button>)}
+              <li className="nav-item">
+                <Link className="nav-link active" to="/About">
                   About
                 </Link>
               </li>
-              <li class="nav-item">
-                <Link class="nav-link active" to="/Product">
+              <li className="nav-item">
+                <Link className="nav-link active" to="/Product">
                   Product
                 </Link>
               </li>
-              <li class="nav-item">
-                <Link class="nav-link active" to="/Pricing">
+              <li className="nav-item">
+                <Link className="nav-link active" to="/Pricing">
                   Pricing
                 </Link>
               </li>
-              <li class="nav-item">
-                <Link class="nav-link active" to="/Support">
+              <li className="nav-item">
+                <Link className="nav-link active" to="/Support">
                   Support
                 </Link>
               </li>

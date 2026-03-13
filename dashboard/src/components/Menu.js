@@ -62,7 +62,7 @@ const Menu = () => {
           <li>
             <Link
               style={{ textDecoration: "none" }}
-              to="funds"
+              to="/funds"
             >
               <p className={location.pathname === "/funds" ? activeMenuClass : menuClass}>
                 Funds

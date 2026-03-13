@@ -12,25 +12,36 @@ import { useCookies } from "react-cookie";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 
+import { useContext } from "react";
+import AuthContext from "../Context/AuthContext";
+
 function HomePage() {
+
+    const { user, setUser } = useContext(AuthContext);
 
     const navigate = useNavigate();
     const [cookies, removeCookie] = useCookies([]);
-    const [username, setUsername] = useState("");
+    // const [username, setUsername] = useState("");
     useEffect(() => {
         const verifyCookie = async () => {
-        const { data } = await axios.post(
-            "http://localhost:3002/verify",
-            {},
-            { withCredentials: true }
-        );
-        const { status, user } = data;
-        setUsername(user);
-        return status
-            ? toast(`Hello ${user}`, {
-                position: "top-right",
-            })
-            : (removeCookie("token"));
+            try {
+                const { data } = await axios.post(
+                    "http://localhost:3002/verify",
+                    {},
+                    { withCredentials: true }
+                );
+                const { status, user } = data;
+                setUser(user);
+                // setUsername(user);
+                if (status) {
+                    toast(`Hello ${user}`, { position: "top-right" });
+                } else {
+                    removeCookie("token");
+                }
+
+            }catch (error) {
+                setUser(null);
+                }
         };
         verifyCookie();
     }, [cookies, navigate, removeCookie]);
@@ -46,7 +57,7 @@ function HomePage() {
 
     return ( 
         <>
-            {username ? <h4>Welcome <span>{username}</span></h4> : null}
+            {user ? <h4>Welcome <span>{user}</span></h4> : null}
             <Hero />
             <Awards />
             <Stats />

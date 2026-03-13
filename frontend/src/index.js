@@ -16,23 +16,27 @@ import Footer from './landing_page/Footer';
 import NotFound from './landing_page/NotFound';
 import Abc from './landing_page/Abc';
 
+import { AuthProvider } from './landing_page/Context/AuthContext';
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <CookiesProvider>
-    <BrowserRouter>
-      <Navbar />
-      <Routes>
-        <Route path='/' element={<HomePage />} />
-        <Route path='/signup' element={<Signup />} />
-        <Route path='/login' element={<Login />} />
-        <Route path='/about' element={<About />} />
-        <Route path='/product' element={<Product />} />
-        <Route path='/pricing' element={<Pricing />} />
-        <Route path='/support' element={<Support />} />
-        <Route path='/abc' element={<Abc />} />
-        <Route path='*' element={<NotFound />} />
-      </Routes>
-      <Footer />
-    </BrowserRouter>
+    <AuthProvider>
+      <BrowserRouter>
+        <Navbar />
+        <Routes>
+          <Route path='/' element={<HomePage />} />
+          <Route path='/signup' element={<Signup />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/about' element={<About />} />
+          <Route path='/product' element={<Product />} />
+          <Route path='/pricing' element={<Pricing />} />
+          <Route path='/support' element={<Support />} />
+          <Route path='/abc' element={<Abc />} />
+          <Route path='*' element={<NotFound />} />
+        </Routes>
+        <Footer />
+      </BrowserRouter>
+    </AuthProvider>
   </CookiesProvider>
 );
