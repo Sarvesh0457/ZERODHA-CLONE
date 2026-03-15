@@ -4,13 +4,21 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./index.css";
 import Home from "./components/Home";
 
+import { CookiesProvider } from "react-cookie";
+import { AuthProvider } from "./Context/AuthContext";
+import ProtectedRoute from "./components/ProtectedRoute";
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route path="/*" element={<Home />} />
-      </Routes>
-    </BrowserRouter>
+    <CookiesProvider>
+      <AuthProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/*" element={<ProtectedRoute><Home /></ProtectedRoute>} />
+          </Routes>
+        </BrowserRouter>
+      </AuthProvider>
+    </CookiesProvider>
   </React.StrictMode>
 );

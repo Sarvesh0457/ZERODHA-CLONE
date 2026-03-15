@@ -1,18 +1,37 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import { Link, useLocation } from "react-router-dom";
+import axios from "axios"
+import { useCookies } from "react-cookie";
+import AuthContext from "../Context/AuthContext";
+import ProfileDropdown from "./ProfileDropdown";
 
 const Menu = () => {
 
   const location = useLocation();
-
-  const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false);
-
-  const handleProfileClick = (index) => {
-    setIsProfileDropdownOpen(!isProfileDropdownOpen);
-  };
-
   const menuClass = "menu";
   const activeMenuClass = "menu selected";
+
+  
+
+    const {user, setUser} = useContext(AuthContext);
+    const [cookies, removeCookie] = useCookies([]);
+    const Logout = async () => {
+          try{
+          await axios.post(
+              "http://localhost:3002/logout",
+              {},
+              { withCredentials: true }
+          );
+
+          removeCookie("token", { path: "/" });
+          setUser(null); // clear context user
+          
+          window.location.replace("http://localhost:3000")
+
+          }catch (err){
+          console.log("Logout Failed: ",err)
+          }
+      };
 
   return (
     <div className="menu-container">
@@ -81,10 +100,7 @@ const Menu = () => {
           </li>
         </ul>
         <hr />
-        <div className="profile" onClick={handleProfileClick}>
-          <div className="avatar">User</div>
-          <p className="username">USERID</p>
-        </div>
+        <ProfileDropdown onLogout={Logout} />
       </div>
     </div>
   );
