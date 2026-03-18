@@ -57,7 +57,6 @@ function HomePage() {
 
     return ( 
         <>
-            {user ? <h4>Welcome <span>{user}</span></h4> : null}
             <Hero />
             <Awards />
             <Stats />
