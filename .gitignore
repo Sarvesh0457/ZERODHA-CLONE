@@ -1,0 +1,6 @@
+build/
+dist/
+
+# Allow these specific build folders inside backend
+!backend/frontend_build/
+!backend/dashboard_build/
