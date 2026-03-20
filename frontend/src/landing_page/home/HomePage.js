@@ -6,7 +6,7 @@ import Pricing from './Pricing';
 import Education from './Education';
 import OpenAccount from '../OpenAccount';
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import axios from "axios";
@@ -17,22 +17,16 @@ import AuthContext from "../Context/AuthContext";
 
 function HomePage() {
 
-    const { user, setUser } = useContext(AuthContext);
+    const { setUser } = useContext(AuthContext);
 
     const navigate = useNavigate();
     const [cookies, removeCookie] = useCookies([]);
-    // const [username, setUsername] = useState("");
     useEffect(() => {
         const verifyCookie = async () => {
             try {
-                const { data } = await axios.post(
-                    "http://localhost:3002/verify",
-                    {},
-                    { withCredentials: true }
-                );
+                const { data } = await axios.post("/verify");
                 const { status, user } = data;
                 setUser(user);
-                // setUsername(user);
                 if (status) {
                     toast(`Hello ${user}`, { position: "top-right" });
                 } else {
@@ -44,16 +38,7 @@ function HomePage() {
                 }
         };
         verifyCookie();
-    }, [cookies, navigate, removeCookie]);
-    const Logout = async() => {
-        await axios.post(
-            "http://localhost:3002/logout",
-            {},
-            { withCredentials: true }
-        );
-        removeCookie("token", { path: "/" });
-        navigate("/");
-    };
+    }, [cookies, navigate, removeCookie, setUser]);
 
     return ( 
         <>
@@ -63,7 +48,6 @@ function HomePage() {
             <Pricing />
             <Education />
             <OpenAccount />
-            <button onClick={Logout}>LOGOUT</button>
 
             {/* flash message */}
             <ToastContainer />

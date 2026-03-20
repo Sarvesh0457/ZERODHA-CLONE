@@ -32,18 +32,17 @@ const Signup = () => {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        "http://localhost:3002/signup",
+        "/signup",
         {
           ...inputValue,
         },
-        { withCredentials: true }
       );
       const { success, message } = data;
       if (success) {
         handleSuccess(message);
         setTimeout(() => {
           alert("Redirecting now");
-          window.location.replace("http://localhost:3001/");
+          window.location.replace(process.env.REACT_APP_DASHBOARD);
         }, 1000);
       } else {
         handleError(message);

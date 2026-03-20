@@ -13,11 +13,7 @@ function Navbar() {
 
   const Logout = async () => {
     try{
-      await axios.post(
-        "http://localhost:3002/logout",
-        {},
-        { withCredentials: true }
-      );
+      await axios.post("/logout");
 
       removeCookie("token", { path: "/" });
       setUser(null); // clear context user
@@ -83,7 +79,7 @@ function Navbar() {
                 </Link>
               </li>
               <li className="nav-item">
-                  <a href="http://localhost:3001" className="nav-link active">
+                  <a href={process.env.REACT_APP_DASHBOARD} className="nav-link active">
                     Dashboard
                   </a>
               </li>

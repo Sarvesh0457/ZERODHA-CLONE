@@ -33,18 +33,17 @@ const Login = () => {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        "http://localhost:3002/login",
+        "/login",
         {
           ...inputValue,
         },
-        { withCredentials: true }
       );
       console.log(data);
       const { success, message } = data;
       if (success) {
         handleSuccess(message);
         setTimeout(() => {
-          window.location.replace("http://localhost:3001/");
+          window.location.replace(process.env.REACT_APP_DASHBOARD);
         }, 1000);
       } else {
         handleError(message);

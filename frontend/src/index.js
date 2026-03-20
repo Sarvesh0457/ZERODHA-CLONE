@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import './index.css';
 import { CookiesProvider } from "react-cookie"; 
+import axios from 'axios';
 
 import Navbar from './landing_page/Navbar';
 import HomePage from './landing_page/home/HomePage';
@@ -19,6 +20,10 @@ import Abc from './landing_page/Abc';
 import { AuthProvider } from './landing_page/Context/AuthContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
+  axios.defaults.baseURL = process.env.REACT_APP_BACKEND;
+  axios.defaults.withCredentials = true;
+
 root.render(
   <CookiesProvider>
     <AuthProvider>

@@ -7,7 +7,7 @@ const authRoute = require("./Routes/AuthRoute");
 const cors = require('cors');
 const { HoldingModel } = require("./Model/HoldingModel");
 const { PositionModel } = require("./Model/PositionsModel");
-const { OrdersModel } = require("./Model/OrdersModel")
+const { OrdersModel } = require("./Model/OrdersModel");
 
 const PORT = process.env.PORT || 3002;
 const URL = process.env.MONGO_URL;

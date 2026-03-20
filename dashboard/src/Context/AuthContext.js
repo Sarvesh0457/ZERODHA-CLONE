@@ -9,7 +9,7 @@ export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-      axios.post("http://localhost:3002/verify", {}, { withCredentials: true })
+      axios.post("/verify", {}, { withCredentials: true })
         .then(res => {
           if (res.data.status) {
             setUser(res.data.user);

@@ -9,7 +9,7 @@ function Navbar() {
             style={{ backgroundColor: "#FFF" }}
             >
                 <div className="p-1">
-                    <a className="navbar-brand" href="http://localhost:3000">
+                    <a className="navbar-brand" href={process.env.REACT_APP_FRONTEND}>
                         <img
                             src="media/images/logo.svg"
                             alt="Zerodha Logo"

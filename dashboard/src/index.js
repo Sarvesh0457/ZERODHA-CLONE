@@ -3,12 +3,17 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./index.css";
 import Home from "./components/Home";
+import axios from "axios";
 
 import { CookiesProvider } from "react-cookie";
 import { AuthProvider } from "./Context/AuthContext";
 import ProtectedRoute from "./components/ProtectedRoute";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
+
+  axios.defaults.baseURL = process.env.REACT_APP_BACKEND;
+  axios.defaults.withCredentials = true;
+
 root.render(
   <React.StrictMode>
     <CookiesProvider>

@@ -17,16 +17,12 @@ const Menu = () => {
     const [cookies, removeCookie] = useCookies([]);
     const Logout = async () => {
           try{
-          await axios.post(
-              "http://localhost:3002/logout",
-              {},
-              { withCredentials: true }
-          );
+          await axios.post("/logout");
 
           removeCookie("token", { path: "/" });
           setUser(null); // clear context user
           
-          window.location.replace("http://localhost:3000")
+          window.location.replace(process.env.REACT_APP_FRONTEND);
 
           }catch (err){
           console.log("Logout Failed: ",err)
