@@ -11,7 +11,7 @@ import ProtectedRoute from "./components/ProtectedRoute";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-  axios.defaults.baseURL = process.env.REACT_APP_BACKEND;
+  axios.defaults.baseURL = "/";
   axios.defaults.withCredentials = true;
 
 root.render(

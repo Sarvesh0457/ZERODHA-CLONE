@@ -9,7 +9,7 @@ function ProtectedRoute({ children }) {
   }
 
   if (!user) {
-    window.location.href = `${process.env.REACT_APP_FRONTEND}/signup`;
+    window.location.href = `/signup`;
     return null;
   }
 

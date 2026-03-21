@@ -12,9 +12,11 @@ const { OrdersModel } = require("./Model/OrdersModel");
 const PORT = process.env.PORT || 3002;
 const URL = process.env.MONGO_URL;
 
+const path = require("path");
+
 app.use(
   cors({
-    origin: [process.env.FRONTEND,process.env.DASHBOARD],
+    origin: true,
     credentials: true,
   })
 );
@@ -22,11 +24,13 @@ app.use(
 app.use(express.json());
 app.use(cookieParser());
 
-app.use("/",authRoute);
+// Serve frontend
+app.use(express.static(path.join(__dirname, "public/frontend/frontend_build")));
 
-app.get("/", (req,res) => {
-  res.send("Backend is running");
-});
+// Serve dashboard
+app.use("/dashboard", express.static(path.join(__dirname, "public/dashboard/dashboard_build")));
+
+app.use("/",authRoute);
 
 app.post("/logout", (req, res) => {
   res.clearCookie("token",  { path: "/" });
@@ -42,7 +46,7 @@ app.get("/allHoldings", async (req,res) => {
 app.get("/allPositions", async (req,res) => {
   let allPositions = await PositionModel.find({});
   res.json(allPositions);
-})
+});
 
 app.post("/newOrder", async (req,res) => {
   let newOrder = new OrdersModel({
@@ -56,7 +60,24 @@ app.post("/newOrder", async (req,res) => {
   await newOrder.save();
 
   res.send("Order Saved");
-})
+});
+
+// Dashboard React routing
+app.use("/dashboard", (req, res) => {
+  res.sendFile(
+    path.join(__dirname, "public/dashboard/dashboard_build/index.html")
+  );
+});
+
+// Frontend React routing
+app.use((req, res, next) => {
+  if (req.originalUrl.startsWith("/api") || req.originalUrl.startsWith("/dashboard") || req.originalUrl.startsWith("/static") || req.originalUrl.includes(".")) {
+    return next();
+  }
+  res.sendFile(
+    path.join(__dirname, "public/frontend/frontend_build/index.html")
+  );
+});
 
 mongoose
   .connect(URL)

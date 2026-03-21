@@ -79,7 +79,7 @@ function Navbar() {
                 </Link>
               </li>
               <li className="nav-item">
-                  <a href={process.env.REACT_APP_DASHBOARD} className="nav-link active">
+                  <a href="/dashboard" className="nav-link active">
                     Dashboard
                   </a>
               </li>

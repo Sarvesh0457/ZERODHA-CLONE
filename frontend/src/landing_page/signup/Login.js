@@ -43,7 +43,7 @@ const Login = () => {
       if (success) {
         handleSuccess(message);
         setTimeout(() => {
-          window.location.replace(process.env.REACT_APP_DASHBOARD);
+          window.location.replace("/dashboard");
         }, 1000);
       } else {
         handleError(message);

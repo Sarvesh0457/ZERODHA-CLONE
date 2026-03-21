@@ -22,7 +22,7 @@ const Menu = () => {
           removeCookie("token", { path: "/" });
           setUser(null); // clear context user
           
-          window.location.replace(process.env.REACT_APP_FRONTEND);
+          window.location.replace("/");
 
           }catch (err){
           console.log("Logout Failed: ",err)
