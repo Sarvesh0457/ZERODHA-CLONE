@@ -9,9 +9,8 @@ const { HoldingModel } = require("./Model/HoldingModel");
 const { PositionModel } = require("./Model/PositionsModel");
 const { OrdersModel } = require("./Model/OrdersModel");
 
-const PORT = process.env.PORT || 3002;
+const PORT = process.env.PORT;
 const URL = process.env.MONGO_URL;
-
 const path = require("path");
 
 app.use(
