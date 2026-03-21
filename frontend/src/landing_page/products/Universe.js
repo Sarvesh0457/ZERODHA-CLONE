@@ -13,13 +13,13 @@ function Universe() {
       </div>
       <div className="row p-5">
         <div className="col-4 p-3">
-            <img src="./media/images/zerodhaFundhouse.png" alt="brand Logo" style={{width:"50%"}}></img>
+            <img src="./Media/Images/zerodhaFundhouse.png" alt="brand Logo" style={{width:"50%"}}></img>
             <p className="p-3 text-muted" style={{opacity:"0.8", fontSize:"14px"}}>
               Our asset management venture <br />
               that is creating simple and transparent index<br />
               funds to help you save for your goals.
             </p>
-            <img src="./media/images/streakLogo.png" alt="brand Logo" style={{width:"50%"}}></img>
+            <img src="./Media/Images/streakLogo.png" alt="brand Logo" style={{width:"50%"}}></img>
             <p className="p-3 text-muted" style={{opacity:"0.8", fontSize:"14px"}}>
               Systematic trading platform<br />
               that allows you to create and backtest<br />
@@ -27,13 +27,13 @@ function Universe() {
             </p>
         </div>
         <div className="col-4 p-3">
-            <img src="./media/images/sensibullLogo.svg" alt="brand Logo" style={{width:"50%"}}></img>
+            <img src="./Media/Images/sensibullLogo.svg" alt="brand Logo" style={{width:"50%"}}></img>
             <p className="p-3 text-muted" style={{opacity:"0.8", fontSize:"14px"}}>
               Options trading platform that lets you<br />
               create strategies, analyze positions, and examine<br />
               data points like open interest, FII/DII, and more.
             </p>
-            <img src="./media/images/smallcaseLogo.png" alt="brand Logo" style={{width:"50%"}} className="mt-4"></img>
+            <img src="./Media/Images/smallcaseLogo.png" alt="brand Logo" style={{width:"50%"}} className="mt-4"></img>
             <p className="p-3 text-muted" style={{opacity:"0.8", fontSize:"14px"}}>
               Thematic investing platform<br />
               that helps you invest in diversified<br />
@@ -41,13 +41,13 @@ function Universe() {
             </p>
         </div>
         <div className="col-4 p-3">
-            <img src="./media/images/goldenpiLogo.png" alt="brand Logo" style={{width:"50%"}}></img>
+            <img src="./Media/Images/goldenpiLogo.png" alt="brand Logo" style={{width:"50%"}}></img>
             <p className="p-3 text-muted" style={{opacity:"0.8", fontSize:"14px"}}>
               Investment research platform<br />
               that offers detailed insights on stocks,<br />
               sectors, supply chains, and more.
             </p>
-            <img src="./media/images/dittoLogo.png" alt="brand Logo" style={{width:"50%"}}></img>
+            <img src="./Media/Images/dittoLogo.png" alt="brand Logo" style={{width:"50%"}}></img>
             <p className="p-3 text-muted" style={{opacity:"0.8", fontSize:"14px"}}>
               Personalized advice on life<br />
               and health insurance. No spam<br />

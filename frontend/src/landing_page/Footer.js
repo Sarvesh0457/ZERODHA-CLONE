@@ -8,7 +8,7 @@ function Footer() {
       <div className="row mt-5">
         <div className="col-4">
           <img
-            src="media/images/logo.svg"
+            src="Media/Images/logo.svg"
             alt="Zerodha-Logo"
             style={{ width: "45%" }}
           ></img>

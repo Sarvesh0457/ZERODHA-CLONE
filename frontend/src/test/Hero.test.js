@@ -8,6 +8,6 @@ describe("Hero Component", () => {
         render(<Hero />);
         const HeroImage = screen.getByAltText("Hero-Image");
         expect(HeroImage).toBeInTheDocument();
-        expect(HeroImage).toHaveAttribute("src","media/images/homeHero.png")
+        expect(HeroImage).toHaveAttribute("src","Media/Images/homeHero.png")
     })
 })

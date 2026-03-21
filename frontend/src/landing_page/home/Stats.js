@@ -17,7 +17,7 @@ function Stats() {
                     <p className='text-muted'>With inititives like Nudge and Kill Switch, we don't just facilate transactions, but actively help you do better with your money.</p>
                 </div>
                 <div className='col-6 p-3'>
-                    <img src='media/images/ecosystem.png' alt='Ecosystem' style={{width:"90%"}}></img>
+                    <img src='Media/Images/ecosystem.png' alt='Ecosystem' style={{width:"90%"}}></img>
                     <div className='text-center'>
                         {/* <a href='abc.com' style={{textDecoration:"none"}}>Explore our products &#8594;</a> */}
                         <Link to='/Abc' className='mx-5'>Explore our products &#8594;</Link>

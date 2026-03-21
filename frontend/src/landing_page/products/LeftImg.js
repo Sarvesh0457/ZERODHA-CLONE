@@ -16,8 +16,8 @@ function LeftImg({imageURL, productName, productDescription, tryDemo, learnMore,
                         {learnMore === '' ? null : <Link to='/Abc' style={{marginLeft:"80px", textDecoration:"none"}}>{learnMore} &#8594;</Link>}
                     </div>
                     <div>
-                        <Link to='/Abc'> <img src='./media/images/googlePlayBadge.svg' alt='Play Store'></img> </Link>
-                        <Link to='/Abc' style={{marginLeft:"10px", textDecoration:"none"}}> <img src='./media/images/appstoreBadge.svg' alt='App Store'></img> </Link>
+                        <Link to='/Abc'> <img src='./Media/Images/googlePlayBadge.svg' alt='Play Store'></img> </Link>
+                        <Link to='/Abc' style={{marginLeft:"10px", textDecoration:"none"}}> <img src='./Media/Images/appstoreBadge.svg' alt='App Store'></img> </Link>
                     </div>
                 </div>
             </div>

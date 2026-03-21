@@ -31,7 +31,7 @@ function Navbar() {
       <div className="container p-1">
         <Link className="navbar-brand" to="/">
           <img
-            src="media/images/logo.svg"
+            src="Media/Images/logo.svg"
             alt="Zerodha Logo"
             style={{ width: "25%" }}
           ></img>
